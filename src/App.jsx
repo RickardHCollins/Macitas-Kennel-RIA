@@ -1,5 +1,5 @@
 import './styles/style.css';
-import { Index } from './pages/index';
+import { Index } from './pages/Index';
 
 export function App() {
   return (
