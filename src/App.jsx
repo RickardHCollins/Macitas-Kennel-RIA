@@ -1,9 +1,10 @@
 import './styles/style.css';
+import { Index } from './pages/index';
 
 export function App() {
   return (
     <div>
-      <h1>Testar att appen fungerar</h1>
+      <Index />
     </div>
   );
 }
