@@ -1,6 +1,40 @@
-import { Component } from 'react';
+import { Component, useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+
+function RandomDog() {
+  const dogs = [
+    { name: "Brasse", img: "brasse.jpeg", desc: "Trygg och stabil hane som älskar apportering." },
+    { name: "Boss", img: "Boss.jpg", desc: "Vår yngsta förmåga, tränas aktivt i viltspår." },
+    { name: "Jasmine", img: "JasmineNoir.jpeg", desc: "Svart tik med bruna anlag. Född 2016." }
+  ];
+
+  const [currentDog, setCurrentDog] = useState(dogs[0]);
+
+  const pickRandomDog = () => {
+    const availableDogs = dogs.filter(dog => dog.name !== currentDog.name);
+    
+    const randomIndex = Math.floor(Math.random() * availableDogs.length);
+    
+    setCurrentDog(availableDogs[randomIndex]);
+  };
+
+  return (
+    <div className="featured-dog-section">
+      <h2>Bekanta dig med en av våra hundar</h2>
+      <div id="random-dog-container">
+        <img src={currentDog.img} alt={currentDog.name} className="random-dog-img" />
+        <div>
+          <h3>{currentDog.name}</h3>
+          <p>{currentDog.desc}</p>
+          <button className="js-btn" onClick={pickRandomDog}>
+            Slumpa ny hund
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export class Index extends Component {
   render() {
@@ -15,6 +49,9 @@ export class Index extends Component {
             </video>
             <h1>Välkommen till Macita's Kennel</h1>
           </section>
+
+          {}
+          <RandomDog />
 
           <div className="info-container">
             <section className="info-card">
